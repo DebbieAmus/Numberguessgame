@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    triggers {
+        githubPush() // Triggers a build when code is pushed to GitHub
+    }
     environment {
         MVN_HOME = '/usr/share/maven/bin/mvn' // Update this to your Maven installation path
         JAVA_HOME = '/usr/lib/jvm/java-17-amazon-corretto.x86_64' // Update this to your Java installation path
@@ -17,7 +20,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "${MVN_HOME}/bin/mvn test"
+                sh 'mvn test'
             }
         }
         stage('Deploy to Tomcat') {
