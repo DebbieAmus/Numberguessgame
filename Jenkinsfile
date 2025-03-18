@@ -23,11 +23,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage('Deploy to Tomcat') {
-            steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-cred', path: '', url: 'http://3.15.240.29:8080')],
-                contextPath: 'NumberGuessGame', war: '**/target/*.war'
-            }
-        }
+      
     }
 }
