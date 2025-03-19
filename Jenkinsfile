@@ -26,7 +26,7 @@ pipeline {
      stage('Deploy to Tomcat') {
     steps {
         script {
-            def warFile = "target/NumberGuessGame.war"
+            def warFile = "target/NumberGuessGame-1.0-SNAPSHOT.war"
             def tomcatURL = "http://18.119.115.31:8080/manager/text"
             def tomcatUser = "admin"
             def tomcatPass = "admin123"
