@@ -26,8 +26,6 @@
         </dependency>
     </dependencies>
     <build>
-        <!-- Ensure WAR file is named 'NumberGuessGame.war' -->
-        <finalName>NumberGuessGame</finalName>
         <plugins>
             <!-- Compiler Plugin -->
             <plugin>
@@ -47,6 +45,4 @@
             </plugin>
         </plugins>
     </build>
-</project> 
-    </build>
-</project>
+</project>\
