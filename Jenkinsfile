@@ -23,7 +23,19 @@ pipeline {
                 sh 'mvn test'
             }
         }
-      
+     stage('Deploy to Tomcat') {
+    steps {
+        script {
+            def warFile = "target/NumberGuessGame.war"
+            def tomcatURL = "http://18.119.115.31:8080/manager/text"
+            def tomcatUser = "admin"
+            def tomcatPass = "admin123"
+            sh """
+                curl -v -u ${tomcatUser}:${tomcatPass} -T ${warFile} ${tomcatURL}/deploy?path=/NumberGuessGame
+            """
+        }
+    }
+} 
     }
 }
 
